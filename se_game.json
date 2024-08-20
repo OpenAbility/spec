@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openability.tech/spec/2024/se_game.json",
+  "title": "SoulEngine game.json Schema",
+  "description": "The JSON shema for SoulEngine game.json",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The game name"
+    },
+    "logLoad": {
+      "type": "boolean",
+      "description": "Should the game log all content loads?"
+    },
+    "dataDirectory": {
+      "type": "string",
+      "description": "The directory to use for loading(packed) game data"
+    },
+    "custom": {
+      "type": "boolean",
+      "description": "Should the game load data from the 'Custom' directory"
+    },
+    "content": {
+      "type": "array",
+      "description": "The content directories to load",
+      "items": {
+        "type": "string"
+      }
+    },
+    "preloads": {
+      "type": "array",
+      "description": "The binaries to load ahead of time",
+      "items": {
+        "type": "string"
+      }
+    },
+    "plugins": {
+      "type": "array",
+      "description": "The engine plugins to load",
+      "items": {
+        "type": "string"
+      }
+    },
+    "prefixes": {
+      "type": "object",
+      "descripton": "String-string dictionary specifying the prefixes/mount points for content",
+      "items": {
+        "type": "string"
+      }
+    },
+    "decompress": {
+      "type": "boolean",
+      "description": "Should we decompress the data?"
+    }
+  },
+  "required": ["name", "dataDirectory", "content"]
+}
